@@ -230,7 +230,9 @@
                     
                    
 
-                    <form action="testapi.php" method="POST">
+                    <form action="{{url('flightsearch')}}"  method="POST">
+                    
+                             
                             <input type="text" name="origin" id="search" required="required" placeholder="Origin" class="input-large" />
                             <ul class="list-group" id="result"></ul>
                             <input type="text" name="destination" id="searchdestination" required="required" placeholder="Destination" class="input-large" />
@@ -240,6 +242,7 @@
                             <input type="text" name="adults" id="adultsearch" required="required" placeholder="Adults" class="input-small" />
                             <input type="text" name="children" id="childrensearch" required="required" placeholder="Children" class="input-small" />
                             <input type="submit" value="Search">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <script src="js/autocomplete.js"></script>
                         </form>
 
