@@ -106,70 +106,27 @@
                         <li class="login-form"> <i class="fa fa-user"></i><!-- login form -->
                             <ul class="drop-down hover-expand">
                                 <li>
-                                    
-                                    <form method="POST" action="{{ route('login') }}">
-                                    @csrf
+                                    <form method="post" action="#">
                                         <table>
                                             <tr>
-                                                
-                                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="E-mail address">
-
-                                                @error('email')
-                                                <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
+                                                <td colspan="2">
+                                                    <input type="email" required="required" name="email" placeholder="Your email address"> 
+                                                </td>
                                             </tr>
                                             <tr>
-                                                
-                                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Password"> 
-                                                @error('password')
-                                                <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                                </span>
-                                                @enderror
+                                                <td colspan="2"> 
+                                                    <input type="password" required="required" name="password" placeholder="Password"> 
+                                                </td>
                                             </tr>
                                             <tr>
-                                            <button type="submit" class="btn btn-primary">
-                                                {{ __('Login') }}
-                                            </button>
-
-                                            @if (Route::has('password.request'))
-                                            <a class="btn btn-link" href="{{ route('password.request') }}">
-                                            {{ __('Forgot Your Password?') }}
-                                            </a>
-                                            @endif
-
-                                            @guest
-                                            @if (Route::has('register'))
-                                            <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                            </li>
-                                            @endif   
-                                            @else
-                                            
-                                
-                                    <a class="btn btn-link" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                    @endguest
-                                            <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                            <label class="form-check-label" for="remember">
-                                            {{ __('Remember Me') }}
-                                            </label>
-                                                
+                                                <td> <input type="submit" value="Login"> </td>
+                                                <td> <label> <input type="checkbox" name="check_box"> Keep me signed in </label> </td>
                                             </tr>
                                         </table>
                                     </form>
                                 </li>
                             </ul>
-                        </li>  
+                        </li>    
 
                         <li class="search-bar"> <i class="fa fa-search"></i><!-- search bar -->
                             <ul class="drop-down hover-expand">
